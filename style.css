@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    
+}
+
+form{
+    background-color: rgb(212, 212, 226);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    box-shadow: rgb(184, 184, 219);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+
+}
