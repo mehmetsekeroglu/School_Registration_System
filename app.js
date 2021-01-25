@@ -8,11 +8,6 @@ const listElement = document.querySelector("#list-section");
 
 let list = [];
 
-
-
-
-
-
 function createHeader() {
     return `
             <nav class="navbar navbar-primary bg-primary">
@@ -23,22 +18,31 @@ function createHeader() {
 
 function createFormSection() {
     return `
-    <form>
-        <h2>Student</h2>
+    <form class="needs-validation" novalidate>
+        <h2>Student Information</h2>
         <div class="form-group">
             <label for="first-name">First Name</label>
             <input type="text" class="form-control" id="first-name"
-                placeholder="Example input">
+                placeholder="First Name">
+                <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
         </div>
         <div class="form-group">
             <label for="last-name">Second Name</label>
             <input type="text" class="form-control" id="last-name"
-                placeholder="Another input">
+                placeholder="Last Name" required>
+                <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
         </div>
         <div class="form-group">
             <label for="age">Age</label>
             <input type="text" class="form-control" id="age"
-                placeholder="Another input">
+                placeholder="Age" required>
+                <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
         </div>
             <button id="add"  class="btn btn-primary">Add Student</button>
     </form>
@@ -64,7 +68,17 @@ function createStudentListSection() {
 }
 
 function addStudent() {
-    return list
+    return `${createStudent()}
+            <tr>
+            <th>Total Student</th>
+            <td>${list.length}</td>
+            </tr>
+        </tbody>`
+        
+}
+
+function createStudent() {
+   return list
         .map((student, index) => {
             return `
             <tbody>
@@ -74,15 +88,30 @@ function addStudent() {
                 <td>${student.lastName}</td>
                 <td>${student.age}</td>
                 <td> <button id="del-${index}" type="button" class="btn btn-danger delete">DELETE</button></td>
-            </tr>
-        </tbody>`
-        })
+            </tr>`
+        }).join("")
 }
 
 function createUI() {
     headerElement.innerHTML = createHeader();
     formElement.innerHTML = createFormSection();
 
+}
+
+function checkNumber(pValue){
+    if(isNaN(pValue)){
+        alert("Lütfen girdiginiz degerleri kontrol edin!");
+        throw new Error("Age");
+    }
+    return (pValue);
+}
+
+function checkText(pValue){
+    if(isNaN(pValue)===false){
+        alert("Lütfen girdiginiz degerleri kontrol edin!");
+        throw new Error("Name");
+    }
+    return (pValue);
 }
 
 createUI()
@@ -92,11 +121,12 @@ mainElement.addEventListener("click", function (event) {
     let firstNameArea = document.querySelector("#first-name");
     let lastNameArea = document.querySelector("#last-name");
     let ageArea = document.querySelector("#age");
+   
     if (event.target.id === "add") {
         list.push({
-            firstName: firstNameArea.value,
-            lastName: lastNameArea.value,
-            age: ageArea.value
+            firstName: checkText(firstNameArea.value),
+            lastName: checkText(lastNameArea.value),
+            age: checkNumber(ageArea.value)
         })
         firstNameArea.value = "";
         lastNameArea.value = "";
@@ -117,3 +147,4 @@ mainElement.addEventListener("click", function (event) {
         })
     }
 })
+
