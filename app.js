@@ -2,9 +2,7 @@ const mainElement = document.querySelector("#app");
 const headerElement = document.querySelector("#nav-header");
 const formElement = document.querySelector("#form-section");
 const listElement = document.querySelector("#list-section");
-//let firstNameArea = document.querySelector("#first-name");
-//let lastNameArea = document.querySelector("#last-name");
-//let ageArea = document.querySelector("#age");
+
 
 let list = [];
 
@@ -73,8 +71,7 @@ function addStudent() {
             <th>Total Student</th>
             <td>${list.length}</td>
             </tr>
-        </tbody>`
-        
+        </tbody>`    
 }
 
 function createStudent() {
@@ -95,7 +92,6 @@ function createStudent() {
 function createUI() {
     headerElement.innerHTML = createHeader();
     formElement.innerHTML = createFormSection();
-
 }
 
 function checkNumber(pValue){
@@ -132,7 +128,6 @@ mainElement.addEventListener("click", function (event) {
         lastNameArea.value = "";
         ageArea.value = "";
         listElement.innerHTML = createStudentListSection();
-
     }
 })
 
