@@ -7,13 +7,13 @@ function addStudent() {
             <th>Total Student</th>
             <td>${list.length}</td>
             </tr>
-        </tbody>`    
+        </tbody>`
 }
 /**
  * yeni ögrenci olusturur
  */
 function createStudent() {
-   return list
+    return list
         .map((student, index) => {
             return `
             <tbody>
@@ -37,8 +37,8 @@ function createUI() {
  * Yas alanina sadece sayi girilmesini saglar(bootsrap ile de yapilabilir)
  * @param {*} pValue 
  */
-function validateNumber(pValue){
-    if(isNaN(pValue) || pValue == ""){
+function validateNumber(pValue) {
+    if (isNaN(pValue) || pValue == "") {
         alert("Invalid Age!");
         throw new Error("Invalid Age!");
     }
@@ -57,7 +57,7 @@ function validateText(pValue) {
         alert("Invalid Characters!");
         throw new Error("Invalid Character");
     }
-    return(pValue)
+    return (pValue)
 }
 /**
  * formdaki bilgileri arraye atar, listeyi görüntüler
@@ -85,16 +85,16 @@ function showStudentList() {
  * tiklandiginda listeden ögrenci siler
  */
 function deleteStudentfromUI() {
-   mainElement.addEventListener("click", function (event) {
-    if (event.target.className === "btn btn-danger delete") {
-        list.filter((student, index) => {
-            if (event.target.id === `del-${index}`) {
-                list.splice(index, 1);
-                listElement.innerHTML = createStudentListSection();
-            }
-        })
-    }
-}) 
+    mainElement.addEventListener("click", function (event) {
+        if (event.target.className === "btn btn-danger delete") {
+            list.filter((student, index) => {
+                if (event.target.id === `del-${index}`) {
+                    list.splice(index, 1);
+                    listElement.innerHTML = createStudentListSection();
+                }
+            })
+        }
+    })
 }
 
 /**Initialization */

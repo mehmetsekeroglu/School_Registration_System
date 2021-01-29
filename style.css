@@ -1,9 +1,9 @@
-h1{
+h1 {
     text-align: center;
-    
+
 }
 
-form{
+form {
     background-color: rgb(200, 214, 243);
     border-radius: 5px;
     box-shadow: 2px 2px 2px;
@@ -11,7 +11,7 @@ form{
     height: 60vh;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     justify-content: space-around;
 
 }
@@ -20,6 +20,6 @@ body {
     background: linear-gradient(to left, #85b0f0, #c071af);
 }
 
-header{
+header {
     background-color: #85b0f0;
 }
