@@ -4,7 +4,7 @@ h1{
 }
 
 form{
-    background-color: rgb(212, 212, 226);
+    background-color: rgb(200, 214, 243);
     border-radius: 5px;
     box-shadow: 2px 2px 2px;
     box-shadow: rgb(184, 184, 219);
@@ -14,4 +14,12 @@ form{
     align-items:center;
     justify-content: space-around;
 
+}
+
+body {
+    background: linear-gradient(to left, #85b0f0, #c071af);
+}
+
+header{
+    background-color: #85b0f0;
 }
